@@ -17,7 +17,7 @@ function getAuthHeader(): string {
   return `Basic ${auth}`;
 }
 
-async function wooFetch<T>(endpoint: string, params: Record<string, string | number> = {}): Promise<T> {
+async function wooFetch<T>(endpoint: string, params: Record<string, string | number | boolean> = {}): Promise<T> {
   const url = new URL(`${WOO_CONFIG.url}/${endpoint}`);
   Object.entries(params).forEach(([key, value]) => {
     url.searchParams.append(key, String(value));
@@ -73,11 +73,13 @@ export async function getProductBySlug(slug: string): Promise<WooProduct | null>
 }
 
 export async function getFeaturedProducts(limit = 8): Promise<WooProduct[]> {
-  return wooFetch<WooProduct[]>("products", { featured: true, per_page: limit });
+  const params: Record<string, string | number> = { per_page: limit };
+  return wooFetch<WooProduct[]>("products", params);
 }
 
 export async function getBestSellers(limit = 8): Promise<WooProduct[]> {
-  return wooFetch<WooProduct[]>("products", { orderby: "popularity", order: "desc", per_page: limit });
+  const params: Record<string, string | number> = { orderby: "popularity", order: "desc", per_page: limit };
+  return wooFetch<WooProduct[]>("products", params);
 }
 
 // ===== CATEGORIES =====
@@ -107,53 +109,4 @@ export function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, "").trim();
 }
 
-// ===== TYPES =====
-
-export interface WooProductImage {
-  id: number;
-  src: string;
-  alt: string;
-  name: string;
-}
-
-export interface WooProductCategory {
-  id: number;
-  name: string;
-  slug: string;
-}
-
-export interface WooProductAttribute {
-  id: number;
-  name: string;
-  position: number;
-  visible: boolean;
-  variation: boolean;
-  options: string[];
-}
-
-export interface WooProduct {
-  id: number;
-  name: string;
-  slug: string;
-  description: string;
-  short_description: string;
-  price: string;
-  regular_price: string;
-  sale_price: string;
-  on_sale: boolean;
-  stock_status: "instock" | "outofstock" | "onbackorder";
-  stock_quantity: number | null;
-  images: WooProductImage[];
-  categories: WooProductCategory[];
-  attributes: WooProductAttribute[];
-  sku: string;
-}
-
-export interface WooCategory {
-  id: number;
-  name: string;
-  slug: string;
-  parent: number;
-  description: string;
-  image: WooProductImage | null;
-}
+export type { WooProduct, WooProductImage, WooCategory } from "./types";
