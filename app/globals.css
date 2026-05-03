@@ -1,25 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+:root {
+  /* YAYAS Brand Colors - Dark Gothic */
+  --void: #0D0D0D;
+  --obsidian: #1A1A1A;
+  --carbon: #2A2A2A;
+  --smoke: #3D3D3D;
+  --ash: #6B6B6B;
+  --silver: #9A9A9A;
+  --cream: #F5F0EB;
+  --gold: #C9A85C;
+  --gold-dim: #A68A4B;
+  --gold-glow: rgba(201, 168, 92, 0.3);
+
+  /* Semantic */
+  --background: var(--void);
+  --foreground: var(--cream);
+}
+
+@theme inline {
+  --color-void: var(--void);
+  --color-obsidian: var(--obsidian);
+  --color-carbon: var(--carbon);
+  --color-smoke: var(--smoke);
+  --color-ash: var(--ash);
+  --color-silver: var(--silver);
+  --color-cream: var(--cream);
+  --color-gold: var(--gold);
+  --color-gold-dim: var(--gold-dim);
+  --font-syne: "Syne", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
 
 @layer base {
-  :root {
-    --void: #050505;
-    --obsidian: #0d0d0d;
-    --carbon: #1a1a1a;
-    --smoke: #2a2a2a;
-    --ash: #6b6b6b;
-    --cream: #e8e4d9;
-    --parchment: #f5f0e6;
-    --gold: #c9a227;
-    --gold-dim: #8a7019;
-    --blood: #8b1a1a;
-  }
-
   * {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
   }
 
   html {
@@ -27,42 +42,59 @@
   }
 
   body {
-    background-color: var(--void);
+    background: var(--void);
     color: var(--cream);
-    font-family: var(--font-space-grotesk), sans-serif;
+    font-family: var(--font-syne);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-syne), sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 800;
+  ::selection {
+    background: var(--gold);
+    color: var(--void);
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--obsidian);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--carbon);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--smoke);
   }
 }
 
-/* Utility classes */
 @layer utilities {
   .text-gradient-gold {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--parchment) 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 50%, var(--gold) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .border-gradient-gold {
-    border: 1px solid transparent;
-    background: linear-gradient(var(--obsidian), var(--obsidian)) padding-box,
-                linear-gradient(135deg, var(--gold) 0%, transparent 50%) border-box;
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   }
 
-  .bg-noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
   }
 }
