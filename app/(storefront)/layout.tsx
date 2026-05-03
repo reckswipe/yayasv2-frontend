@@ -1,6 +1,8 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { AnnouncementBar } from "@/components/storefront/AnnouncementBar";
+import { WhatsAppCTA } from "@/components/ui/WhatsAppCTA";
+import { CartDrawer } from "@/components/layout/CartDrawer";
+import { ToastProvider } from "@/components/ui/Toast";
 
 export default function StorefrontLayout({
   children,
@@ -8,11 +10,12 @@ export default function StorefrontLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <AnnouncementBar />
+    <ToastProvider>
       <Header />
       <main className="min-h-screen">{children}</main>
       <Footer />
-    </>
+      <WhatsAppCTA />
+      <CartDrawer />
+    </ToastProvider>
   );
 }
