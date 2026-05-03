@@ -106,3 +106,54 @@ export function formatPrice(price: number | string): string {
 export function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, "").trim();
 }
+
+// ===== TYPES =====
+
+export interface WooProductImage {
+  id: number;
+  src: string;
+  alt: string;
+  name: string;
+}
+
+export interface WooProductCategory {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+export interface WooProductAttribute {
+  id: number;
+  name: string;
+  position: number;
+  visible: boolean;
+  variation: boolean;
+  options: string[];
+}
+
+export interface WooProduct {
+  id: number;
+  name: string;
+  slug: string;
+  description: string;
+  short_description: string;
+  price: string;
+  regular_price: string;
+  sale_price: string;
+  on_sale: boolean;
+  stock_status: "instock" | "outofstock" | "onbackorder";
+  stock_quantity: number | null;
+  images: WooProductImage[];
+  categories: WooProductCategory[];
+  attributes: WooProductAttribute[];
+  sku: string;
+}
+
+export interface WooCategory {
+  id: number;
+  name: string;
+  slug: string;
+  parent: number;
+  description: string;
+  image: WooProductImage | null;
+}
