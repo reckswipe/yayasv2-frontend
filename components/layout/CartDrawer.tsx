@@ -49,8 +49,8 @@ export function CartDrawer() {
                 {items.map((item) => (
                   <div key={item.id} className="flex gap-4">
                     <div className="w-20 h-20 bg-carbon flex-shrink-0">
-                      {item.image && (
-                        <Image src={item.image} alt={item.name} width={80} height={80} className="object-cover" />
+                      {item.image?.src && (
+                        <Image src={item.image.src} alt={item.name} width={80} height={80} className="object-cover" />
                       )}
                     </div>
                     <div className="flex-1">

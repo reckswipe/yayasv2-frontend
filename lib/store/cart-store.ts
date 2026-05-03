@@ -1,12 +1,17 @@
 import { create } from 'zustand';
 
+export interface CartItemImage {
+  src: string;
+  alt?: string;
+}
+
 export interface CartItem {
   id: number;
   product_id: number;
   name: string;
   price: number;
   quantity: number;
-  image?: string;
+  image?: CartItemImage;
   sku?: string;
 }
 

@@ -30,7 +30,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
       name: product.name,
       price: parseFloat(product.price),
       quantity,
-      image: product.images[0]?.src,
+      image: { src: product.images[0]?.src || "", alt: product.images[0]?.alt || "" },
       sku: product.sku,
     });
     setAdded(true);
