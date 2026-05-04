@@ -33,8 +33,8 @@ export function Header() {
           </button>
 
           {/* Logo */}
-          <Link href="/" className="font-syne text-2xl lg:text-3xl font-black uppercase tracking-[0.2em] text-gradient-gold hover:brightness-110 transition-all">
-            YAYAS
+          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <Image src="https://compra.yayas.com.mx/wp-content/uploads/2026/05/transparent-Photoroom.png" alt="YAYAS" width={120} height={40} className="h-10 w-auto object-contain" />
           </Link>
 
           {/* Right */}

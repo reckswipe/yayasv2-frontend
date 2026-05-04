@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -6,7 +7,9 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
-            <Link href="/" className="font-syne text-xl font-bold uppercase tracking-widest text-gold mb-6 block">YAYAS</Link>
+            <Link href="/" className="block mb-4 hover:opacity-80 transition-opacity">
+              <Image src="https://compra.yayas.com.mx/wp-content/uploads/2026/05/transparent-Photoroom.png" alt="YAYAS" width={100} height={33} className="h-8 w-auto object-contain" />
+            </Link>
             <p className="text-ash text-sm leading-relaxed">La única certeza es el caos. Streetwear mexicano que fusiona la oscuridad mística con la cultura urbana contemporánea.</p>
           </div>
           <div>
