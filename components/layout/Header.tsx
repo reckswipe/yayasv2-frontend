@@ -35,7 +35,7 @@ export function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <Image src="https://compra.yayas.com.mx/wp-content/uploads/2026/05/transparent-Photoroom.png" alt="YAYAS" width={180} height={60} className="h-14 w-auto object-contain" />
+            <Image src="https://compra.yayas.com.mx/wp-content/uploads/2026/05/transparent-Photoroom.png" alt="YAYAS" width={280} height={93} className="h-20 lg:h-24 w-auto object-contain" />
           </Link>
 
           {/* Right */}
