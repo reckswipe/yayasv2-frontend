@@ -24,7 +24,7 @@ export function Hero() {
           Streetwear Mexicano · Temporada 2026
         </p>
         
-        <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-syne font-black uppercase tracking-[0.05em] leading-[0.85] mb-8 animate-fade-in-up delay-100">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-syne font-black uppercase tracking-[0.05em] leading-[0.9] mb-8 animate-fade-in-up delay-100">
           <span className="block text-cream">LA ÚNICA</span>
           <span className="block text-gradient-gold-subtle">CERTEZA ES</span>
           <span className="block text-cream">EL CAOS</span>
