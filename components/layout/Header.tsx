@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Search, ShoppingBag, Menu, X } from "lucide-react";
+import Image from "next/image";
 import { useCartStore } from "@/lib/store/cart-store";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
