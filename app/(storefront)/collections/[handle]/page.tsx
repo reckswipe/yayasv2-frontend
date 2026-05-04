@@ -8,11 +8,12 @@ import Image from "next/image";
 export const dynamic = "force-dynamic";
 
 interface Props {
-  params: { handle: string };
+  params: Promise<{ handle: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const category = await getCategoryBySlug(params.handle);
+  const { handle } = await params;
+  const category = await getCategoryBySlug(handle);
   if (!category) return { title: "Colección no encontrada" };
   return {
     title: category.name,
@@ -21,9 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CollectionPage({ params }: Props) {
+  const { handle } = await params;
   const [category, { products }] = await Promise.all([
-    getCategoryBySlug(params.handle),
-    getProducts({ category: params.handle, perPage: 100 }),
+    getCategoryBySlug(handle),
+    getProducts({ category: handle, perPage: 100 }),
   ]);
 
   if (!category) notFound();

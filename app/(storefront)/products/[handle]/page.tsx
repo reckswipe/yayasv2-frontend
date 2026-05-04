@@ -6,11 +6,12 @@ import { ProductInfo } from "@/components/product/ProductInfo";
 import { RelatedProducts } from "@/components/product/RelatedProducts";
 
 interface Props {
-  params: { handle: string };
+  params: Promise<{ handle: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = await getProductBySlug(params.handle);
+  const { handle } = await params;
+  const product = await getProductBySlug(handle);
   if (!product) return { title: "Producto no encontrado" };
 
   const image = product.images[0];
@@ -28,7 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProductPage({ params }: Props) {
-  const product = await getProductBySlug(params.handle);
+  const { handle } = await params;
+  const product = await getProductBySlug(handle);
   if (!product) notFound();
 
   // Get related products from same category
