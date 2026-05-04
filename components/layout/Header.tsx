@@ -15,7 +15,7 @@ export function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/collections/new" className="text-sm uppercase tracking-widest hover:text-gold transition-colors">Nuevo</Link>
+          <Link href="/collections/all" className="text-sm uppercase tracking-widest hover:text-gold transition-colors">Nuevo</Link>
           <Link href="/collections/all" className="text-sm uppercase tracking-widest hover:text-gold transition-colors">Colecciones</Link>
           <Link href="/search" className="text-sm uppercase tracking-widest hover:text-gold transition-colors">Buscar</Link>
         </nav>
