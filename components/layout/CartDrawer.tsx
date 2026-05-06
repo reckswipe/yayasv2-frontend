@@ -47,7 +47,7 @@ export function CartDrawer() {
             </button>
           </div>
 
-          {/* Empty state */}
+          {/* Items or empty state */}
           {items.length === 0 ? (
             <div className="flex-1 flex flex-col items-center justify-center p-6">
               <ShoppingBag size={48} className="text-carbon mb-6" />
@@ -62,7 +62,7 @@ export function CartDrawer() {
             </div>
           ) : (
             <>
-              {/* Free shipping progress */}
+              {/* Free shipping bar */}
               {amountToFreeShipping > 0 && (
                 <div className="px-6 py-3 bg-carbon/50 border-b border-carbon">
                   <div className="flex justify-between text-xs text-ash mb-1.5">
@@ -78,7 +78,7 @@ export function CartDrawer() {
                 </div>
               )}
 
-              {/* Items */}
+              {/* Cart items */}
               <div className="flex-1 overflow-y-auto p-6 space-y-4">
                 {items.map((item) => (
                   <div key={item.id} className="flex gap-4 p-3 bg-carbon/30 border border-carbon/50">
@@ -90,7 +90,10 @@ export function CartDrawer() {
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between gap-2 mb-1">
                         <h4 className="text-sm font-medium line-clamp-1">{item.name}</h4>
-                        <button onClick={() => removeItem(item.id)} className="text-ash hover:text-blood transition-colors flex-shrink-0">
+                        <button
+                          onClick={() => removeItem(item.id)}
+                          className="text-ash hover:text-blood transition-colors flex-shrink-0 text-xs"
+                        >
                           <X size={14} />
                         </button>
                       </div>

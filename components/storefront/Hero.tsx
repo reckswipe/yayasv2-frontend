@@ -3,20 +3,20 @@ import Link from "next/link";
 export function Hero() {
   return (
     <section className="relative h-[95vh] min-h-[650px] flex items-center justify-center overflow-hidden">
-      {/* Deep black overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-void via-void/85 via-void/60 to-obsidian z-10" />
+      {/* Deep black overlay with subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-void via-void/90 via-void/70 to-obsidian z-10" />
       
-      {/* Hero image */}
+      {/* Hero image — dark moody fashion shot */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop&auto=format&q=80')",
-          filter: "brightness(0.3) contrast(1.1)",
+          filter: "brightness(0.35) contrast(1.1)",
         }}
       />
-
-      {/* Noise texture overlay */}
-      <div className="absolute inset-0 z-10 opacity-[0.03]" style={{backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")"}} />
+      
+      {/* Subtle grain/noise texture */}
+      <div className="absolute inset-0 z-10 opacity-[0.04]" style={{backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")"}} />
 
       {/* Content */}
       <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
@@ -24,7 +24,7 @@ export function Hero() {
           Streetwear Mexicano · Temporada 2026
         </p>
         
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-syne font-black uppercase tracking-[0.05em] leading-[0.9] mb-8 animate-fade-in-up delay-100">
+        <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-syne font-black uppercase tracking-[0.05em] leading-[0.85] mb-8 animate-fade-in-up delay-100">
           <span className="block text-cream">LA ÚNICA</span>
           <span className="block text-gradient-gold-subtle">CERTEZA ES</span>
           <span className="block text-cream">EL CAOS</span>
@@ -40,7 +40,7 @@ export function Hero() {
             href="/collections/all"
             className="group px-12 py-4 bg-gold text-void font-syne uppercase tracking-[0.2em] text-sm font-bold hover:bg-parchment transition-all duration-300 glow-gold"
           >
-            <span className="flex items-center justify-center gap-3">
+            <span className="flex items-center gap-3">
               Explorar Colección
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -56,7 +56,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — animated */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-fade-in-up delay-500">
         <span className="text-[10px] uppercase tracking-[0.3em] text-ash">Scroll</span>
         <div className="w-px h-12 bg-gradient-to-b from-gold to-transparent" />

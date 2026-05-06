@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { Search, ShoppingBag, Menu, X } from "lucide-react";
-import Image from "next/image";
 import { useCartStore } from "@/lib/store/cart-store";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -15,7 +14,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-void/95 backdrop-blur-md border-b border-carbon/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Left nav */}
+          {/* Left nav — desktop */}
           <nav className="hidden lg:flex items-center gap-8">
             <Link href="/collections/all" className="text-sm uppercase tracking-widest text-ash hover:text-gold transition-colors duration-300 underline-grow">
               Colecciones
@@ -34,12 +33,12 @@ export function Header() {
           </button>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <Image src="https://compra.yayas.com.mx/wp-content/uploads/2026/05/transparent-Photoroom.png" alt="YAYAS" width={280} height={93} className="h-20 lg:h-24 w-auto object-contain" />
+          <Link href="/" className="font-syne text-2xl lg:text-3xl font-bold uppercase tracking-[0.2em] text-gradient-gold transition-all duration-300 hover:brightness-110">
+            YAYAS
           </Link>
 
-          {/* Right */}
-          <div className="hidden lg:flex items-center gap-5">
+          {/* Right — desktop */}
+          <div className="hidden lg:flex items-center gap-6">
             <Link href="/search" className="p-2 text-ash hover:text-gold transition-all duration-300 hover:scale-110">
               <Search size={20} />
             </Link>
@@ -56,12 +55,12 @@ export function Header() {
             </button>
           </div>
 
-          {/* Mobile right */}
-          <div className="flex lg:hidden items-center gap-3">
-            <Link href="/search" className="p-2 text-ash hover:text-gold">
+          {/* Mobile — right */}
+          <div className="flex lg:hidden items-center gap-4">
+            <Link href="/search" className="p-2 text-ash hover:text-gold transition-colors">
               <Search size={20} />
             </Link>
-            <button onClick={toggleCart} className="p-2 text-ash hover:text-gold relative">
+            <button onClick={toggleCart} className="p-2 text-ash hover:text-gold transition-colors relative">
               <ShoppingBag size={20} />
               {itemCount > 0 && (
                 <span className="absolute -top-1 -right-1 w-5 h-5 bg-gold text-void text-xs font-bold rounded-full flex items-center justify-center">
@@ -74,27 +73,20 @@ export function Header() {
       </div>
 
       {/* Mobile menu */}
-      <div className={cn(
-        "lg:hidden overflow-hidden transition-all duration-300 bg-void border-t border-carbon/50",
-        mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
-      )}>
-        <nav className="flex flex-col px-6 py-4 gap-1">
-          {[
-            { href: "/collections/all", label: "Colecciones" },
-            { href: "/search", label: "Buscar" },
-            { href: "/about", label: "Nosotros" },
-            { href: "/faq", label: "FAQ" },
-            { href: "/contact", label: "Contacto" },
-          ].map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setMobileOpen(false)}
-              className="text-sm uppercase tracking-widest text-ash hover:text-gold transition-colors py-3 border-b border-carbon/30 hover:border-gold/30"
-            >
-              {label}
-            </Link>
-          ))}
+      <div className={cn("lg:hidden overflow-hidden transition-all duration-300 bg-void border-t border-carbon/50", mobileOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0")}>
+        <nav className="flex flex-col px-6 py-4 gap-4">
+          <Link href="/collections/all" onClick={() => setMobileOpen(false)} className="text-sm uppercase tracking-widest text-ash hover:text-gold transition-colors py-2 border-b border-carbon/30">
+            Colecciones
+          </Link>
+          <Link href="/search" onClick={() => setMobileOpen(false)} className="text-sm uppercase tracking-widest text-ash hover:text-gold transition-colors py-2 border-b border-carbon/30">
+            Buscar
+          </Link>
+          <Link href="/about" onClick={() => setMobileOpen(false)} className="text-sm uppercase tracking-widest text-ash hover:text-gold transition-colors py-2 border-b border-carbon/30">
+            Nosotros
+          </Link>
+          <Link href="/faq" onClick={() => setMobileOpen(false)} className="text-sm uppercase tracking-widest text-ash hover:text-gold transition-colors py-2">
+            FAQ
+          </Link>
         </nav>
       </div>
     </header>

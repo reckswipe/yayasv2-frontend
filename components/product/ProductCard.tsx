@@ -24,7 +24,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Image */}
+      {/* Image container */}
       <div className="relative aspect-[3/4] bg-obsidian mb-4 overflow-hidden">
         {image && (
           <Image
@@ -45,18 +45,18 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
         )}
-
+        
         {/* Dark overlay on hover */}
         <div className={`absolute inset-0 bg-gradient-to-t from-void/60 via-transparent to-transparent transition-opacity duration-500 ${isHovered ? "opacity-100" : "opacity-0"}`} />
 
-        {/* Quick view button */}
+        {/* Quick view — shows on hover */}
         <div className={`absolute inset-x-0 bottom-0 p-4 transition-all duration-500 ${isHovered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
           <span className="block w-full py-3 bg-gold text-void text-xs font-bold uppercase tracking-widest text-center hover:bg-parchment transition-colors">
             Ver Producto
           </span>
         </div>
 
-        {/* Badges */}
+        {/* Badges — top left */}
         <div className="absolute top-3 left-3 flex flex-col gap-2">
           {isOnSale && (
             <span className="px-2.5 py-1 bg-blood text-white text-[10px] font-mono uppercase tracking-wider font-bold">Sale</span>
@@ -72,7 +72,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
         </div>
       </div>
 
-      {/* Info */}
+      {/* Product info */}
       <div>
         <h3 className="text-sm font-medium mb-1.5 group-hover:text-gold transition-colors duration-300 line-clamp-1 tracking-wide">
           {product.name}
