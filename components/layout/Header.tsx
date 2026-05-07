@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { Search, ShoppingBag, Menu, X } from "lucide-react";
 import { useCartStore } from "@/lib/store/cart-store";
 import { useState, useEffect } from "react";
@@ -65,9 +66,16 @@ export function Header() {
           {/* Logo — centered */}
           <Link 
             href="/" 
-            className="font-syne text-2xl lg:text-3xl font-black uppercase tracking-[0.25em] bg-gradient-to-r from-gold via-cream to-gold bg-clip-text text-transparent transition-all duration-300 hover:brightness-120 hover:scale-[1.02]"
+            className="transition-all duration-300 hover:brightness-110 hover:scale-[1.02]"
           >
-            YAYAS
+            <Image 
+              src="https://compra.yayas.com.mx/wp-content/uploads/2026/05/transparent-Photoroom-e1777858237211.png" 
+              alt="YAYAS" 
+              width={110} 
+              height={37}
+              className="h-9 lg:h-11 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Right — desktop */}
