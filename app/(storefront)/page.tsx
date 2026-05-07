@@ -90,12 +90,14 @@ export default function HomePage() {
             </div>
           </div>
           
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
             {[
               { name: 'Hoodies', href: '/collections/hoodies', img: 'https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=400&h=500&fit=crop' },
-              { name: 'Tees', href: '/collections/tees', img: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=500&fit=crop' },
-              { name: 'Longsleeves', href: '/collections/longsleeves', img: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=500&fit=crop' },
-              { name: 'Accesorios', href: '/collections/accesorios', img: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&h=500&fit=crop' },
+              { name: 'Playeras', href: '/collections/playeras', img: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&h=500&fit=crop' },
+              { name: 'Chaquetas', href: '/collections/chaquetas', img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop' },
+              { name: 'Pantalones', href: '/collections/pantalones', img: 'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=400&h=500&fit=crop' },
+              { name: 'Accesorios', href: '/collections/accesorios', img: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop' },
+              { name: 'Premium', href: '/collections/premium', img: 'https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=400&h=500&fit=crop' },
             ].map((cat) => (
               <Link
                 key={cat.name}

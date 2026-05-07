@@ -19,7 +19,7 @@ export interface WooProduct {
   categories: { id: number; name: string; slug: string }[];
   images: WooProductImage[];
   sku: string;
-  tags: { id: number; name: string; slug: string }[];
+  tags: { id: number; name: string; slug: string }[] | string[];
   attributes: { id: number; name: string; options: string[] }[];
 }
 
