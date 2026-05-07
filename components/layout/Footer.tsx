@@ -13,9 +13,14 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-1">
             <Link href="/" className="block mb-6 group">
-              <span className="font-syne text-3xl font-black uppercase tracking-[0.3em] bg-gradient-to-r from-gold via-cream to-gold bg-clip-text text-transparent group-hover:brightness-110 transition-all">
-                YAYAS
-              </span>
+              <Image 
+                src="https://compra.yayas.com.mx/wp-content/uploads/2026/05/transparent-Photoroom-e1777858237211.png" 
+                alt="YAYAS Logo" 
+                width={140} 
+                height={47}
+                className="h-12 w-auto object-contain brightness-90 group-hover:brightness-100 transition-all duration-300"
+                priority
+              />
             </Link>
             <p className="text-ash text-sm leading-relaxed mb-8 max-w-xs">
               La única certeza es el caos. Streetwear mexicano que fusiona la oscuridad mística con la cultura urbana contemporánea.
