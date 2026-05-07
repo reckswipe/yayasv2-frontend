@@ -31,10 +31,9 @@ export function Hero() {
         </p>
         
         {/* Main headline */}
-        <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-syne font-black uppercase tracking-[0.03em] leading-[0.88] mb-10 animate-fade-in-up delay-100">
-          <span className="block text-cream">La única</span>
-          <span className="block text-gradient-gold-subtle">certeza es</span>
-          <span className="block relative text-cream">{" el caos"}</span>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-syne font-black uppercase tracking-[0.04em] leading-[0.92] mb-10 animate-fade-in-up delay-100">
+          <span className="block text-cream">La única certeza</span>
+          <span className="block text-gradient-gold-subtle">es el caos</span>
         </h1>
         
         {/* Subtitle */}

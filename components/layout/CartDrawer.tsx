@@ -27,7 +27,8 @@ export function CartDrawer() {
       <div
         className={cn(
           "fixed right-0 top-0 h-full w-full max-w-md bg-obsidian border-l border-carbon z-50 transition-transform duration-500 ease-out",
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? "translate-x-0" : "translate-x-full invisible",
+          !isOpen && "pointer-events-none"
         )}
       >
         <div className="flex flex-col h-full">
