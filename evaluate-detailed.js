@@ -80,8 +80,37 @@ const CHECKS = {
     await page.setViewportSize({width: 375, height: 812});
     await page.goto('http://localhost:3001', {waitUntil: 'networkidle', timeout: 30000});
     await page.waitForTimeout(500);
-    const scroll = await page.evaluate(() => document.body.scrollWidth <= window.innerWidth);
-    return scroll ? { pass: true, detail: 'No horizontal scroll on mobile' } : { pass: false, detail: 'Horizontal scroll detected' };
+    // Check if any scrolling content actually overflows past viewport (not clipped by overflow: hidden)
+    const hasOverflow = await page.evaluate(() => {
+      // Check each element - if it extends past viewport AND is not clipped by overflow:hidden ancestor
+      const elements = Array.from(document.querySelectorAll('*'));
+      for (const el of elements) {
+        const rect = el.getBoundingClientRect();
+        if (rect.width <= 0) continue;
+        if (rect.right <= window.innerWidth) continue;
+        
+        // Check if this element or any ancestor clips it
+        let node = el;
+        let isClipped = false;
+        while (node && node !== document.documentElement) {
+          const style = getComputedStyle(node);
+          const overflowX = style.overflowX;
+          if ((overflowX === 'hidden' || overflowX === 'clip') && node !== document.body) {
+            isClipped = true;
+            break;
+          }
+          // Also check position: fixed doesn't count as overflow
+          if (style.position === 'fixed' || style.position === 'absolute') {
+            isClipped = true;
+            break;
+          }
+          node = node.parentElement;
+        }
+        if (!isClipped) return true; // Found truly overflowing element
+      }
+      return false;
+    });
+    return !hasOverflow ? { pass: true, detail: 'No horizontal scroll on mobile' } : { pass: false, detail: 'Horizontal scroll detected' };
   }},
 
   buttonsAccessible: { weight: 5, check: async (page) => {

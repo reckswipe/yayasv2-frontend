@@ -27,13 +27,17 @@ export function CartDrawer() {
       <div
         className={cn(
           "fixed right-0 top-0 h-full w-full max-w-md bg-obsidian border-l border-carbon z-50 transition-transform duration-500 ease-out",
-          isOpen ? "translate-x-0" : "translate-x-full invisible",
-          !isOpen && "pointer-events-none"
+          isOpen ? "translate-x-0" : "translate-x-full",
+          !isOpen && "pointer-events-none",
+          !isOpen && "invisible"
         )}
       >
-        <div className="flex flex-col h-full">
+        <div 
+          className={cn("flex flex-col h-full", !isOpen && "invisible")} 
+          aria-hidden={!isOpen}
+        >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-carbon">
+          <div className={cn("flex items-center justify-between p-6 border-b border-carbon", !isOpen && "invisible")}>
             <div>
               <h2 className="font-syne text-lg font-bold uppercase tracking-widest">Mi Carrito</h2>
               {items.length > 0 && (

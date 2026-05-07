@@ -37,9 +37,9 @@ export default function HomePage() {
                 <span className="text-gold uppercase tracking-[0.3em] text-[10px] font-mono">Nuestra Historia</span>
               </div>
               
-              <h2 className="text-3xl lg:text-5xl font-syne font-black uppercase tracking-[0.03em] leading-[0.95] mb-8">
+              <h2 className="text-2xl md:text-3xl lg:text-5xl font-syne font-black uppercase tracking-[0.03em] leading-[0.95] mb-8 break-words">
                 Más que tela,<br />
-                <span className="text-gradient-gold-subtle">portamos identidades</span>
+                <span className="text-gradient-gold-subtle break-words">portamos identidades</span>
               </h2>
               
               <p className="text-ash leading-relaxed mb-8 max-w-md">
