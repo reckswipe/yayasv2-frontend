@@ -41,6 +41,7 @@ export function CartDrawer() {
             </div>
             <button
               onClick={() => setCartOpen(false)}
+              aria-label="Cerrar carrito"
               className="w-10 h-10 flex items-center justify-center border border-carbon hover:border-gold hover:text-gold transition-all duration-300"
             >
               <X size={18} />

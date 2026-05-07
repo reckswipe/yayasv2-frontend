@@ -71,6 +71,7 @@ export function NewsletterSignup() {
             <button
               type="submit"
               disabled={loading}
+              aria-label="Suscribirse al newsletter"
               className="px-8 py-4 bg-gold text-void font-syne uppercase tracking-[0.15em] text-[12px] font-bold hover:bg-parchment transition-all duration-300 flex items-center justify-center gap-2.5 glow-gold disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
