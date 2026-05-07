@@ -34,11 +34,7 @@ export function Hero() {
         <h1 className="text-5xl md:text-7xl lg:text-[8rem] font-syne font-black uppercase tracking-[0.03em] leading-[0.88] mb-10 animate-fade-in-up delay-100">
           <span className="block text-cream">La única</span>
           <span className="block text-gradient-gold-subtle">certeza es</span>
-          <span className="block relative text-cream">
-            el caos
-            {/* Decorative underline */}
-            <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-60" />
-          </span>
+          <span className="block relative text-cream">{" el caos"}</span>
         </h1>
         
         {/* Subtitle */}
